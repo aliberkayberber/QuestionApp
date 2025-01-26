@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import questions from '../questions';
+import { useState, useEffect } from "react";
+import questions from "../questions";
 
 function Quiz() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -57,7 +57,9 @@ function Quiz() {
   };
 
   const calculateResults = () => {
-    const correctAnswers = userAnswers.filter((answer) => answer.isCorrect).length;
+    const correctAnswers = userAnswers.filter(
+      (answer) => answer.isCorrect
+    ).length;
     const incorrectAnswers = userAnswers.length - correctAnswers;
     const blankAnswers = questions.length - userAnswers.length;
     return { correctAnswers, incorrectAnswers, blankAnswers };
@@ -70,16 +72,34 @@ function Quiz() {
       {!testStarted ? (
         <div className="start-screen">
           <h1>Welcome to the Quiz App</h1>
-          <p>This quiz consists of {questions.length} questions. Each question will be displayed for a maximum of 30 seconds. The answer options will be hidden for the first 4 seconds.</p>
+          <p>
+            This quiz consists of {questions.length} questions. Each question
+            will be displayed for a maximum of 30 seconds. The answer options
+            will be hidden for the first 4 seconds.
+          </p>
           <button onClick={() => setTestStarted(true)}>Start Testing</button>
         </div>
       ) : showScore ? (
         <div className="score-section">
-          <i className="fas fa-trophy" style={{ fontSize: '3em', color: '#ffd700' }}></i>
-          <p>You scored {score} out of {questions.length}</p>
-          <p><i className="fas fa-check-circle" style={{ color: 'green' }}></i> Correct answers: {results.correctAnswers}</p>
-          <p><i className="fas fa-times-circle" style={{ color: 'red' }}></i> Incorrect answers: {results.incorrectAnswers}</p>
-          <p><i className="fas fa-minus-circle" style={{ color: 'gray' }}></i> Blank answers: {results.blankAnswers}</p>
+          <i
+            className="fas fa-trophy"
+            style={{ fontSize: "3em", color: "#ffd700" }}
+          ></i>
+          <p>
+            You scored {score} out of {questions.length}
+          </p>
+          <p>
+            <i className="fas fa-check-circle" style={{ color: "green" }}></i>{" "}
+            Correct answers: {results.correctAnswers}
+          </p>
+          <p>
+            <i className="fas fa-times-circle" style={{ color: "red" }}></i>{" "}
+            Incorrect answers: {results.incorrectAnswers}
+          </p>
+          <p>
+            <i className="fas fa-minus-circle" style={{ color: "gray" }}></i>{" "}
+            Blank answers: {results.blankAnswers}
+          </p>
         </div>
       ) : (
         <>
@@ -87,20 +107,45 @@ function Quiz() {
             <div className="question-count">
               <span>Question {currentQuestion + 1}</span>/{questions.length}
             </div>
-            <div className="question-text">{questions[currentQuestion].question}</div>
-            <img src={questions[currentQuestion].media} alt="question media" className="question-media" />
+            <div className="question-text">
+              {questions[currentQuestion].question}
+            </div>
+            <img
+              src={questions[currentQuestion].media}
+              alt="question media"
+              className="question-media"
+            />
             <div className="timer">Time left: {timeLeft} seconds</div>
             <div className="circular-timer" key={currentQuestion}>
               <svg>
-                <circle className="background-circle" cx="50" cy="50" r="45"></circle>
-                <circle className="progress-circle" cx="50" cy="50" r="45" strokeDasharray="283" strokeDashoffset="0"></circle>
+                <circle
+                  className="background-circle"
+                  cx="50"
+                  cy="50"
+                  r="45"
+                ></circle>
+                <circle
+                  className="progress-circle"
+                  cx="50"
+                  cy="50"
+                  r="45"
+                  strokeDasharray="283"
+                  strokeDashoffset="0"
+                ></circle>
               </svg>
             </div>
           </div>
           <div className="answer-section">
             {showOptions ? (
               questions[currentQuestion].options.map((option, index) => (
-                <button key={index} onClick={() => handleAnswerOptionClick(option === questions[currentQuestion].answer)}>
+                <button
+                  key={index}
+                  onClick={() =>
+                    handleAnswerOptionClick(
+                      option === questions[currentQuestion].answer
+                    )
+                  }
+                >
                   {option}
                 </button>
               ))
