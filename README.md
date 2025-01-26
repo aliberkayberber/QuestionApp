@@ -39,7 +39,7 @@ This is a simple Quiz App built with React. The app presents a series of questio
     ```bash
     npm start
     ```
-2. Open your browser and navigate to `http://localhost:3000`
+2. Open your browser and navigate to `https://questionsapppatika.netlify.app/`
 
 ## Contributing
 
