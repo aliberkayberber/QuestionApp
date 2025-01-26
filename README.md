@@ -20,7 +20,7 @@ This is a simple Quiz App built with React. The app presents a series of questio
 
 ## Live Website
 
-    - https://questionsapppatika.netlify.app/
+https://questionsapppatika.netlify.app/
 
 ## Installation
 
